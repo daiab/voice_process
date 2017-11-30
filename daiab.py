@@ -115,7 +115,9 @@ def speaker_diarization():
 def remove_silence():
     smoothing = 1.0
     weight = 0.5
+    example_file = '/home/yulongwu/d/voice/wav/2nU95KARZwk.wav'
     fr, x = audio_basic_io.read_audio_file(example_file)
+    print('x shape', x.shape)
     segment_limits = aS.silenceRemoval(x, fr, 0.05, 0.05,
                                        smoothing, weight, True)
     for i, s in enumerate(segment_limits):
@@ -124,6 +126,7 @@ def remove_silence():
 
 
 if __name__ == '__main__':
-    speaker_diarization()
+    remove_silence()
+    # speaker_diarization()
     # plot_spectorgram()
     # extract_feat()

@@ -648,6 +648,7 @@ def silenceRemoval(x, Fs, stWin, stStep, smoothWindow=0.5, Weight=0.5, plot=Fals
     ProbOnsetSorted = np.sort(
         ProbOnset)  # find probability Threshold as a weighted average of top 10% and lower 10% of the values
     Nt = ProbOnsetSorted.shape[0] / 10
+    Nt = int(Nt)
     T = (np.mean((1 - Weight) * ProbOnsetSorted[0:Nt]) + Weight * np.mean(ProbOnsetSorted[-Nt::]))
 
     MaxIdx = np.where(ProbOnset > T)[0]  # get the indices of the frames that satisfy the thresholding

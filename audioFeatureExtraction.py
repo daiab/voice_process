@@ -558,6 +558,7 @@ def st_feature_extraction(signal, fr, win, step):
     max_value = (numpy.abs(signal)).max()
     signal = (signal - dc) / (max_value + 0.0000000001)
 
+    print(signal.shape)
     n = len(signal)  # total number of samples
     cur_pos = 0
     count_frames = 0
